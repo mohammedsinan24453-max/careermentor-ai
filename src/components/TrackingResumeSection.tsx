@@ -1,5 +1,15 @@
 import { AnimatedSection } from '@/components/AnimatedSection';
+import { AnimatedProgressBar } from '@/components/AnimatedProgressBar';
 import { LineChart, FileText, CheckCircle, TrendingUp } from 'lucide-react';
+
+const skillsProgress = [
+  { label: 'Python Fundamentals', percentage: 100, status: 'Complete', statusType: 'complete' as const },
+  { label: 'Data Analysis', percentage: 67, status: 'In Progress', statusType: 'inProgress' as const },
+  { label: 'Machine Learning', percentage: 35, status: 'In Progress', statusType: 'inProgress' as const },
+  { label: 'SQL & Databases', percentage: 85, status: 'Almost Done', statusType: 'inProgress' as const },
+  { label: 'Data Visualization', percentage: 52, status: 'In Progress', statusType: 'inProgress' as const },
+  { label: 'Cloud Computing', percentage: 15, status: 'Getting Started', statusType: 'upcoming' as const },
+];
 
 export const TrackingResumeSection = () => {
   return (
@@ -30,28 +40,17 @@ export const TrackingResumeSection = () => {
                 Visualize your learning journey with intuitive progress tracking. 
                 See exactly where you are and what's coming next.
               </p>
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-foreground">Python Fundamentals</span>
-                  <span className="text-sm text-primary">Complete</span>
-                </div>
-                <div className="h-2 bg-secondary rounded-full overflow-hidden">
-                  <div className="h-full w-full bg-primary rounded-full" />
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-foreground">Data Analysis</span>
-                  <span className="text-sm text-muted-foreground">In Progress</span>
-                </div>
-                <div className="h-2 bg-secondary rounded-full overflow-hidden">
-                  <div className="h-full w-2/3 bg-gradient-to-r from-primary to-accent rounded-full" />
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-foreground">Machine Learning</span>
-                  <span className="text-sm text-muted-foreground">Upcoming</span>
-                </div>
-                <div className="h-2 bg-secondary rounded-full overflow-hidden">
-                  <div className="h-full w-0 bg-primary rounded-full" />
-                </div>
+              <div className="space-y-5">
+                {skillsProgress.map((skill, index) => (
+                  <AnimatedProgressBar
+                    key={skill.label}
+                    label={skill.label}
+                    percentage={skill.percentage}
+                    status={skill.status}
+                    statusType={skill.statusType}
+                    delay={index * 0.15}
+                  />
+                ))}
               </div>
             </div>
           </AnimatedSection>
@@ -74,7 +73,7 @@ export const TrackingResumeSection = () => {
                   <TrendingUp className="w-4 h-4 text-primary" />
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {['Python', 'SQL', 'Pandas', 'Data Viz', 'Statistics'].map((skill, i) => (
+                  {['Python', 'SQL', 'Pandas', 'Data Viz', 'Statistics', 'ML Basics'].map((skill, i) => (
                     <span
                       key={i}
                       className="px-3 py-1 text-xs font-medium text-primary bg-primary/10 rounded-full"
