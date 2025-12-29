@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import logo from '@/assets/logo.png';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,7 +21,8 @@ export const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <span className="text-xl font-bold text-foreground">CareerMentor</span>
+            <img src={logo} alt="CareerMentor AI" className="h-8 w-auto" />
+            <span className="text-xl font-bold text-foreground">areerMentor</span>
             <span className="text-xl font-bold gradient-text">AI</span>
           </div>
 

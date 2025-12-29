@@ -1,5 +1,14 @@
 import { AnimatedSection } from '@/components/AnimatedSection';
+import { AnimatedProgressBar } from '@/components/AnimatedProgressBar';
 import { Linkedin, Building2, TrendingUp } from 'lucide-react';
+
+const skills = [
+  { skill: 'Python', percent: 92 },
+  { skill: 'SQL', percent: 88 },
+  { skill: 'Machine Learning', percent: 75 },
+  { skill: 'Data Visualization', percent: 70 },
+  { skill: 'Cloud (AWS/GCP)', percent: 65 },
+];
 
 export const IndustryDrivenSection = () => {
   return (
@@ -49,25 +58,13 @@ export const IndustryDrivenSection = () => {
                   <span className="text-xs text-primary">Live data</span>
                 </div>
                 <div className="space-y-4">
-                  {[
-                    { skill: 'Python', percent: 92 },
-                    { skill: 'SQL', percent: 88 },
-                    { skill: 'Machine Learning', percent: 75 },
-                    { skill: 'Data Visualization', percent: 70 },
-                    { skill: 'Cloud (AWS/GCP)', percent: 65 },
-                  ].map((item, i) => (
-                    <div key={i} className="space-y-2">
-                      <div className="flex justify-between text-sm">
-                        <span className="text-foreground">{item.skill}</span>
-                        <span className="text-muted-foreground">{item.percent}%</span>
-                      </div>
-                      <div className="h-2 bg-secondary rounded-full overflow-hidden">
-                        <div
-                          className="h-full bg-gradient-to-r from-primary to-accent rounded-full transition-all duration-1000"
-                          style={{ width: `${item.percent}%` }}
-                        />
-                      </div>
-                    </div>
+                  {skills.map((item, i) => (
+                    <AnimatedProgressBar
+                      key={i}
+                      label={item.skill}
+                      percentage={item.percent}
+                      delay={i * 0.15}
+                    />
                   ))}
                 </div>
               </div>
