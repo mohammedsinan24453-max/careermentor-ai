@@ -60,11 +60,11 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        purple: {
-          glow: "hsl(var(--purple-glow))",
+        gold: {
+          glow: "hsl(var(--gold-glow))",
         },
-        blue: {
-          glow: "hsl(var(--blue-glow))",
+        amber: {
+          glow: "hsl(var(--amber-glow))",
         },
       },
       borderRadius: {
