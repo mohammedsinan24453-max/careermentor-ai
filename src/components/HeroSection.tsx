@@ -24,7 +24,7 @@ export const HeroSection = () => {
         <AnimatedSection delay={0}>
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/50 border border-border/50 backdrop-blur-sm mb-8">
             <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-sm text-muted-foreground">AI-Powered Career Guidance</span>
+            <span className="text-sm text-muted-foreground">Now accepting early access applications</span>
           </div>
         </AnimatedSection>
 
@@ -40,8 +40,8 @@ export const HeroSection = () => {
         {/* Subheading */}
         <AnimatedSection delay={0.2}>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed">
-            CareerMentor AI gives you one clear, practical roadmap based on your time, 
-            goals, and real hiring data — not endless options.
+            CareerMentor AI creates your personalized roadmap, tracks your progress, 
+            auto-generates your resume, and helps you discover relevant job opportunities — all in one place.
           </p>
         </AnimatedSection>
 

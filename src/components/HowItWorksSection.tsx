@@ -1,5 +1,5 @@
 import { AnimatedSection, StaggerContainer, StaggerItem } from '@/components/AnimatedSection';
-import { Briefcase, Clock, Route, LineChart, FileText } from 'lucide-react';
+import { Briefcase, Clock, Route, LineChart, FileText, Search } from 'lucide-react';
 
 const steps = [
   {
@@ -31,6 +31,12 @@ const steps = [
     icon: FileText,
     title: 'Auto-Generate Resume',
     description: 'Your learning automatically builds a skills-based resume ready for applications.',
+  },
+  {
+    step: '06',
+    icon: Search,
+    title: 'Discover Jobs',
+    description: 'Find relevant job opportunities matched to your completed skills and resume.',
   },
 ];
 

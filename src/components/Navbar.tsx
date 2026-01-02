@@ -20,10 +20,14 @@ export const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center gap-2">
-            <img src={logo} alt="CareerMentor AI" className="h-8 w-auto" />
-            <span className="text-xl font-bold text-foreground">areerMentor</span>
-            <span className="text-xl font-bold gradient-text">AI</span>
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-lg bg-secondary/50 border border-border/50 flex items-center justify-center overflow-hidden">
+              <img src={logo} alt="CareerMentor AI" className="h-8 w-8 object-contain" />
+            </div>
+            <div className="flex flex-col leading-tight">
+              <span className="text-lg font-bold text-foreground">CareerMentor</span>
+              <span className="text-xs font-semibold gradient-text">AI</span>
+            </div>
           </div>
 
           {/* Desktop Navigation */}

@@ -54,8 +54,8 @@ export const WaitlistSection = () => {
             <span className="gradient-text">Waitlist</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Be the first to access CareerMentor AI when we launch. 
-            Get early access and exclusive updates.
+            Early access users get priority access to personalized roadmaps, 
+            auto-generated resumes, and job-matching features.
           </p>
         </AnimatedSection>
 
