@@ -1,11 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import logo from '@/assets/logo.png';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -16,33 +24,49 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
-      <div className="max-w-7xl mx-auto px-6">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isScrolled 
+        ? 'bg-background/90 backdrop-blur-xl border-b border-[rgba(255,255,255,0.06)]' 
+        : 'bg-transparent'
+    }`}>
+      <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-secondary/50 border border-border/50 flex items-center justify-center overflow-hidden">
-              <img src={logo} alt="CareerMentor AI" className="h-8 w-8 object-contain" />
+          <div className="flex items-center gap-2">
+            {/* Logo Mark - Curved stroke with c_ inside */}
+            <div className="relative w-9 h-9">
+              <svg viewBox="0 0 36 36" className="w-full h-full">
+                {/* Outer curved stroke */}
+                <path
+                  d="M28 8 C34 14, 34 26, 24 32"
+                  fill="none"
+                  stroke="hsl(45 87% 62%)"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                />
+                {/* c_ text */}
+                <text
+                  x="10"
+                  y="24"
+                  fill="white"
+                  fontSize="14"
+                  fontWeight="600"
+                  fontFamily="Inter, sans-serif"
+                >
+                  c_
+                </text>
+              </svg>
             </div>
-            <div className="flex flex-col leading-tight">
-              <span className="text-lg font-bold text-foreground">CareerMentor</span>
-              <span className="text-xs font-semibold gradient-text">AI</span>
-            </div>
+            <span className="text-lg font-bold text-foreground">CareerMentor AI</span>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             <button
-              onClick={() => scrollToSection('problem')}
+              onClick={() => scrollToSection('features')}
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
-              Problem
-            </button>
-            <button
-              onClick={() => scrollToSection('solution')}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Solution
+              Features
             </button>
             <button
               onClick={() => scrollToSection('how-it-works')}
@@ -51,10 +75,10 @@ export const Navbar = () => {
               How It Works
             </button>
             <button
-              onClick={() => scrollToSection('faq')}
+              onClick={() => scrollToSection('testimonials')}
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
-              FAQ
+              Testimonials
             </button>
           </div>
 
@@ -65,7 +89,7 @@ export const Navbar = () => {
               size="sm"
               onClick={() => scrollToSection('waitlist')}
             >
-              Join Waitlist
+              Get Early Access
             </Button>
           </div>
 
@@ -86,20 +110,14 @@ export const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background border-b border-border"
+            className="md:hidden bg-card border-b border-[rgba(255,255,255,0.06)]"
           >
             <div className="px-6 py-4 space-y-4">
               <button
-                onClick={() => scrollToSection('problem')}
+                onClick={() => scrollToSection('features')}
                 className="block w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
-                Problem
-              </button>
-              <button
-                onClick={() => scrollToSection('solution')}
-                className="block w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Solution
+                Features
               </button>
               <button
                 onClick={() => scrollToSection('how-it-works')}
@@ -108,17 +126,17 @@ export const Navbar = () => {
                 How It Works
               </button>
               <button
-                onClick={() => scrollToSection('faq')}
+                onClick={() => scrollToSection('testimonials')}
                 className="block w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
-                FAQ
+                Testimonials
               </button>
               <Button
                 variant="hero"
                 className="w-full"
                 onClick={() => scrollToSection('waitlist')}
               >
-                Join Waitlist
+                Get Early Access
               </Button>
             </div>
           </motion.div>

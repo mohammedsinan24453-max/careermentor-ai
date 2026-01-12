@@ -47,40 +47,34 @@ export const WaitlistSection = () => {
 
   return (
     <section id="waitlist" className="section-container">
-      <div className="max-w-3xl mx-auto">
-        <AnimatedSection className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            <span className="text-foreground">Join the </span>
-            <span className="gradient-text">Waitlist</span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Early access users get priority access to personalized roadmaps, 
-            auto-generated resumes, and job-matching features.
+      <div className="max-w-xl mx-auto text-center">
+        <AnimatedSection className="mb-10">
+          <p className="text-lg text-muted-foreground max-w-md mx-auto leading-relaxed">
+            Join early and be the first to experience a clear path from learning to getting hired.
           </p>
         </AnimatedSection>
 
-        <AnimatedSection delay={0.2}>
-          <div className="glass-card p-8 md:p-12 relative overflow-hidden">
-            {/* Background glow */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl" />
+        <AnimatedSection delay={0.1}>
+          <div className="glass-card p-8 md:p-10 relative overflow-hidden">
+            {/* Subtle glow */}
+            <div className="absolute top-0 right-0 w-48 h-48 bg-primary/8 rounded-full blur-3xl" />
 
             <div className="relative">
               {isSubmitted ? (
-                <div className="text-center py-8">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
-                    <CheckCircle className="w-8 h-8 text-primary" />
+                <div className="text-center py-6">
+                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5">
+                    <CheckCircle className="w-7 h-7 text-primary" />
                   </div>
-                  <h3 className="text-2xl font-semibold text-foreground mb-2">
+                  <h3 className="text-xl font-semibold text-foreground mb-2">
                     You're on the list!
                   </h3>
-                  <p className="text-muted-foreground">
+                  <p className="text-muted-foreground text-sm">
                     We'll send you an email when CareerMentor AI is ready.
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="space-y-2">
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div className="space-y-2 text-left">
                     <label className="text-sm font-medium text-foreground">
                       Full Name
                     </label>
@@ -89,19 +83,19 @@ export const WaitlistSection = () => {
                       placeholder="Enter your full name"
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
-                      className="h-12 bg-secondary/50 border-border/50 focus:border-primary/50 focus:ring-primary/20"
+                      className="h-12 bg-secondary/50 border-[rgba(255,255,255,0.06)] focus:border-primary/50 focus:ring-primary/20"
                     />
                   </div>
 
-                  <div className="space-y-2">
+                  <div className="space-y-2 text-left">
                     <label className="text-sm font-medium text-foreground">
                       Current Status
                     </label>
                     <Select value={status} onValueChange={setStatus}>
-                      <SelectTrigger className="h-12 bg-secondary/50 border-border/50 focus:border-primary/50 focus:ring-primary/20">
+                      <SelectTrigger className="h-12 bg-secondary/50 border-[rgba(255,255,255,0.06)] focus:border-primary/50 focus:ring-primary/20">
                         <SelectValue placeholder="Select your current status" />
                       </SelectTrigger>
-                      <SelectContent className="bg-card border-border">
+                      <SelectContent className="bg-card border-[rgba(255,255,255,0.06)]">
                         <SelectItem value="student">Student</SelectItem>
                         <SelectItem value="fresher">Fresher</SelectItem>
                         <SelectItem value="working">Working Professional</SelectItem>
@@ -109,16 +103,16 @@ export const WaitlistSection = () => {
                     </Select>
                   </div>
 
-                  <div className="space-y-2">
+                  <div className="space-y-2 text-left">
                     <label className="text-sm font-medium text-foreground">
-                      Email Address
+                      Email
                     </label>
                     <Input
                       type="email"
                       placeholder="Enter your email address"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="h-12 bg-secondary/50 border-border/50 focus:border-primary/50 focus:ring-primary/20"
+                      className="h-12 bg-secondary/50 border-[rgba(255,255,255,0.06)] focus:border-primary/50 focus:ring-primary/20"
                     />
                   </div>
 
@@ -136,14 +130,14 @@ export const WaitlistSection = () => {
                       </>
                     ) : (
                       <>
-                        Join the Waitlist
+                        Join Waitlist
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </>
                     )}
                   </Button>
 
-                  <p className="text-center text-sm text-muted-foreground">
-                    No spam. No selling your data. Unsubscribe anytime.
+                  <p className="text-center text-xs text-muted-foreground pt-2">
+                    No spam. Unsubscribe anytime.
                   </p>
                 </form>
               )}
