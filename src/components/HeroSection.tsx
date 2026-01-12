@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { AnimatedSection } from '@/components/AnimatedSection';
-import { ArrowRight, Play } from 'lucide-react';
+import { ArrowRight, MessageCircle } from 'lucide-react';
 
 export const HeroSection = () => {
   const scrollToSection = (id: string) => {
@@ -12,41 +12,37 @@ export const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
-      {/* Background Glow Effects */}
+      {/* Subtle Background Glow */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-gradient-to-b from-primary/20 via-accent/10 to-transparent rounded-full blur-3xl opacity-50" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-accent/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-gradient-to-b from-primary/10 via-primary/5 to-transparent rounded-full blur-3xl opacity-60" />
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 py-20 text-center">
-        {/* Badge */}
-        <AnimatedSection delay={0}>
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/50 border border-border/50 backdrop-blur-sm mb-8">
-            <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-sm text-muted-foreground">Now accepting early access applications</span>
-          </div>
-        </AnimatedSection>
-
+      <div className="relative z-10 max-w-4xl mx-auto px-6 py-20 text-center">
         {/* Main Headline */}
-        <AnimatedSection delay={0.1}>
+        <AnimatedSection delay={0}>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
-            <span className="gradient-text">Stop drowning in resources.</span>
-            <br />
-            <span className="text-foreground">Start making progress.</span>
+            <span className="text-foreground">Your Personal </span>
+            <span className="gradient-text">AI Career Mentor</span>
           </h1>
         </AnimatedSection>
 
-        {/* Subheading */}
-        <AnimatedSection delay={0.2}>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed">
-            CareerMentor AI creates your personalized roadmap, tracks your progress, 
-            auto-generates your resume, and helps you discover relevant job opportunities — all in one place.
+        {/* Subheadline */}
+        <AnimatedSection delay={0.1}>
+          <p className="text-xl md:text-2xl text-muted-foreground mb-4">
+            Simple. Personalized. Actionable.
+          </p>
+        </AnimatedSection>
+
+        {/* Supporting Text */}
+        <AnimatedSection delay={0.15}>
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
+            Get custom roadmaps based on your time, only the highest-quality resources, 
+            automated resume building, and job suggestions — all in one place.
           </p>
         </AnimatedSection>
 
         {/* CTA Buttons */}
-        <AnimatedSection delay={0.3}>
+        <AnimatedSection delay={0.2}>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button
               variant="hero"
@@ -54,36 +50,18 @@ export const HeroSection = () => {
               onClick={() => scrollToSection('waitlist')}
               className="group"
             >
-              Join Waitlist
+              Get Early Access
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
             </Button>
             <Button
               variant="heroOutline"
               size="lg"
-              onClick={() => scrollToSection('how-it-works')}
+              onClick={() => window.open('https://wa.me/', '_blank')}
               className="group"
             >
-              <Play size={16} className="mr-2" />
-              See How It Works
+              <MessageCircle size={18} className="mr-2" />
+              Try the AI on WhatsApp
             </Button>
-          </div>
-        </AnimatedSection>
-
-        {/* Trust Indicators */}
-        <AnimatedSection delay={0.4}>
-          <div className="mt-16 pt-8 border-t border-border/30">
-            <p className="text-sm text-muted-foreground mb-4">Trusted by learners preparing for</p>
-            <div className="flex flex-wrap items-center justify-center gap-6 text-muted-foreground/70">
-              <span className="text-sm font-medium">Tech Careers</span>
-              <span className="text-muted-foreground/30">•</span>
-              <span className="text-sm font-medium">Data Science</span>
-              <span className="text-muted-foreground/30">•</span>
-              <span className="text-sm font-medium">Product Management</span>
-              <span className="text-muted-foreground/30">•</span>
-              <span className="text-sm font-medium">Design</span>
-              <span className="text-muted-foreground/30">•</span>
-              <span className="text-sm font-medium">More</span>
-            </div>
           </div>
         </AnimatedSection>
       </div>

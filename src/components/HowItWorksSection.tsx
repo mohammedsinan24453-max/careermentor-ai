@@ -1,43 +1,17 @@
-import { AnimatedSection, StaggerContainer, StaggerItem } from '@/components/AnimatedSection';
-import { Briefcase, Clock, Route, LineChart, FileText, Search } from 'lucide-react';
+import { AnimatedSection } from '@/components/AnimatedSection';
+import { useRef, useEffect, useState } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { Check } from 'lucide-react';
 
-const steps = [
-  {
-    step: '01',
-    icon: Briefcase,
-    title: 'Choose Your Career',
-    description: 'Select from tech, data science, product management, design, and more career paths.',
-  },
-  {
-    step: '02',
-    icon: Clock,
-    title: 'Set Your Timeline',
-    description: 'Pick 3 months, 6 months, or custom duration based on your availability.',
-  },
-  {
-    step: '03',
-    icon: Route,
-    title: 'Get Your Roadmap',
-    description: 'Receive a personalized learning path with curated resources for each skill.',
-  },
-  {
-    step: '04',
-    icon: LineChart,
-    title: 'Track Progress',
-    description: 'Mark topics as complete and visualize your journey with progress tracking.',
-  },
-  {
-    step: '05',
-    icon: FileText,
-    title: 'Auto-Generate Resume',
-    description: 'Your learning automatically builds a skills-based resume ready for applications.',
-  },
-  {
-    step: '06',
-    icon: Search,
-    title: 'Discover Jobs',
-    description: 'Find relevant job opportunities matched to your completed skills and resume.',
-  },
+const careers = ['Data Science', 'Web Dev', 'Product', 'Design', 'ML/AI'];
+const timelines = ['3 months', '6 months', '12 months'];
+
+const roadmapSteps = [
+  { name: 'Python Fundamentals', status: 'complete' },
+  { name: 'Data Analysis', status: 'complete' },
+  { name: 'SQL & Databases', status: 'current' },
+  { name: 'Machine Learning', status: 'upcoming' },
+  { name: 'Projects & Portfolio', status: 'upcoming' },
 ];
 
 export const HowItWorksSection = () => {
@@ -49,34 +23,135 @@ export const HowItWorksSection = () => {
             <span className="text-foreground">How </span>
             <span className="gradient-text">It Works</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            From confusion to clarity in 5 simple steps. No complex setup, no overwhelming choices.
-          </p>
         </AnimatedSection>
 
-        <StaggerContainer className="space-y-6" staggerDelay={0.1}>
-          {steps.map((step, index) => (
-            <StaggerItem key={index}>
-              <div className="glass-card p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center gap-6 hover:border-primary/30 transition-all duration-300">
-                <div className="flex items-center gap-6">
-                  <span className="text-4xl font-bold gradient-text opacity-50">{step.step}</span>
-                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <step.icon className="w-7 h-7 text-primary" />
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {step.description}
-                  </p>
+        <div className="grid md:grid-cols-2 gap-8">
+          {/* Frame 1: Choose Career & Timeline */}
+          <AnimatedSection delay={0.1}>
+            <div className="glass-card p-8 h-full">
+              <h3 className="text-xl font-bold text-foreground mb-3">
+                Choose Your Career & Timeline
+              </h3>
+              <p className="text-muted-foreground text-sm mb-6">
+                Tell us where you want to go and how fast you want to get there.
+              </p>
+              <p className="text-muted-foreground/70 text-xs mb-6">
+                Choose your target role and timeline so your roadmap fits your life.
+              </p>
+
+              {/* Career Selection */}
+              <div className="mb-6">
+                <div className="text-xs text-muted-foreground mb-2">Select Career</div>
+                <div className="flex flex-wrap gap-2">
+                  {careers.map((career, index) => (
+                    <button
+                      key={career}
+                      className={`px-3 py-1.5 text-xs rounded-full transition-all ${
+                        index === 0
+                          ? 'bg-primary text-primary-foreground'
+                          : 'bg-secondary/50 text-muted-foreground hover:bg-secondary'
+                      }`}
+                    >
+                      {career}
+                    </button>
+                  ))}
                 </div>
               </div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
+
+              {/* Timeline Selection */}
+              <div>
+                <div className="text-xs text-muted-foreground mb-2">Set Timeline</div>
+                <div className="flex gap-2">
+                  {timelines.map((timeline, index) => (
+                    <button
+                      key={timeline}
+                      className={`flex-1 px-3 py-2 text-xs rounded-lg border transition-all ${
+                        index === 1
+                          ? 'border-primary bg-primary/10 text-primary'
+                          : 'border-[rgba(255,255,255,0.06)] text-muted-foreground hover:border-primary/30'
+                      }`}
+                    >
+                      {timeline}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </AnimatedSection>
+
+          {/* Frame 2: Get Industry-Driven Roadmap */}
+          <AnimatedSection delay={0.2}>
+            <div className="glass-card p-8 h-full">
+              <h3 className="text-xl font-bold text-foreground mb-3">
+                Get an Industry-Driven Roadmap
+              </h3>
+              <p className="text-muted-foreground text-sm mb-6">
+                We generate a clear, job-focused roadmap using real hiring data.
+              </p>
+              <p className="text-muted-foreground/70 text-xs mb-6">
+                Every skill is relevant, ordered, and practical.
+              </p>
+
+              {/* Roadmap Preview */}
+              <RoadmapFlowPreview />
+            </div>
+          </AnimatedSection>
+        </div>
       </div>
     </section>
+  );
+};
+
+const RoadmapFlowPreview = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const [animated, setAnimated] = useState(false);
+
+  useEffect(() => {
+    if (isInView) {
+      setTimeout(() => setAnimated(true), 300);
+    }
+  }, [isInView]);
+
+  return (
+    <div ref={ref} className="space-y-2">
+      {roadmapSteps.map((step, index) => (
+        <motion.div
+          key={step.name}
+          initial={{ opacity: 0, x: -20 }}
+          animate={animated ? { opacity: 1, x: 0 } : {}}
+          transition={{ delay: index * 0.1, duration: 0.4 }}
+          className="flex items-center gap-3"
+        >
+          {/* Status indicator */}
+          <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${
+            step.status === 'complete'
+              ? 'bg-primary'
+              : step.status === 'current'
+              ? 'border-2 border-primary'
+              : 'border border-[rgba(255,255,255,0.15)]'
+          }`}>
+            {step.status === 'complete' && (
+              <Check size={10} className="text-primary-foreground" strokeWidth={3} />
+            )}
+            {step.status === 'current' && (
+              <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+            )}
+          </div>
+
+          {/* Skill name */}
+          <span className={`text-sm ${
+            step.status === 'upcoming' ? 'text-muted-foreground/50' : 'text-foreground'
+          }`}>
+            {step.name}
+          </span>
+
+          {/* Current indicator */}
+          {step.status === 'current' && (
+            <span className="ml-auto text-xs text-primary">Current</span>
+          )}
+        </motion.div>
+      ))}
+    </div>
   );
 };
