@@ -4,123 +4,45 @@
 @tailwind components;
 @tailwind utilities;
 
-<<<<<<< HEAD
 /* ============================================================
-   CareerMentor AI – Design System (Gold Theme)
+   BASE LAYER
    ============================================================ */
 
 @layer base {
   :root {
-    --background: 240 8% 8%;
-    --foreground: 0 0% 98%;
-=======
-/* CareerMentor AI Design System - Premium Gold Theme */
-/* Exact color specs from design brief */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
-@layer base {
-  :root {
-    /* Core Colors - Exact hex values converted to HSL */
-    --background: 240 7% 4%; /* #0B0B0D */
-    --foreground: 0 0% 100%; /* #FFFFFF */
->>>>>>> 05e4b3f7d8dcbf8ed032cb15e8010b1108d9889f
-
-    --card: 240 5% 7%; /* #121214 */
-    --card-foreground: 0 0% 100%;
-
-    --popover: 240 5% 7%;
-    --popover-foreground: 0 0% 100%;
-
-<<<<<<< HEAD
-    /* Brand Gold */
-    --primary: 45 93% 47%;
-    --primary-foreground: 240 10% 4%;
-=======
-    /* Primary Gold: #F2C94C */
-    --primary: 45 87% 62%;
-    --primary-foreground: 240 7% 4%;
->>>>>>> 05e4b3f7d8dcbf8ed032cb15e8010b1108d9889f
-
-    /* Gold Hover: #E6B93D */
-    --primary-hover: 43 80% 57%;
-
-<<<<<<< HEAD
-    --muted: 240 10% 15%;
-    --muted-foreground: 0 0% 78%;
-=======
-    /* Muted Gold: #C9A227 */
-    --primary-muted: 44 70% 47%;
->>>>>>> 05e4b3f7d8dcbf8ed032cb15e8010b1108d9889f
-
-    --secondary: 240 5% 10%;
-    --secondary-foreground: 0 0% 100%;
-
-    --muted: 240 5% 12%;
-    --muted-foreground: 0 0% 71%; /* #B5B5B5 */
-
-    --accent: 45 87% 62%;
-    --accent-foreground: 240 7% 4%;
-
-<<<<<<< HEAD
-    --border: 240 10% 18%;
-    --input: 240 10% 18%;
-    --ring: 45 93% 47%;
-
-    --radius: 0.75rem;
-  }
-
-=======
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
-
-    /* Borders: rgba(255,255,255,0.06) */
-    --border: 0 0% 100% / 0.06;
-    --input: 240 5% 15%;
-    --ring: 45 87% 62%;
-
-    --radius: 0.75rem;
-
-    /* Custom Gold Glow: rgba(242,201,76,0.15) */
-    --gold-glow: 45 87% 62%;
-    --glow-opacity: 0.15;
-
-    /* Sidebar */
-    --sidebar-background: 240 5% 7%;
-    --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 45 87% 62%;
-    --sidebar-primary-foreground: 240 7% 4%;
-    --sidebar-accent: 240 5% 12%;
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 0 0% 100% / 0.06;
-    --sidebar-ring: 45 87% 62%;
-  }
-
-  .dark {
+    /* Core Colors */
     --background: 240 7% 4%;
     --foreground: 0 0% 100%;
+
     --card: 240 5% 7%;
     --card-foreground: 0 0% 100%;
+
     --popover: 240 5% 7%;
     --popover-foreground: 0 0% 100%;
+
+    /* Primary Gold */
     --primary: 45 87% 62%;
     --primary-foreground: 240 7% 4%;
+    --primary-hover: 43 80% 57%;
+
+    /* Secondary / Muted */
     --secondary: 240 5% 10%;
     --secondary-foreground: 0 0% 100%;
+
     --muted: 240 5% 12%;
     --muted-foreground: 0 0% 71%;
+
     --accent: 45 87% 62%;
     --accent-foreground: 240 7% 4%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 100%;
+
+    /* Borders */
     --border: 0 0% 100% / 0.06;
     --input: 240 5% 15%;
     --ring: 45 87% 62%;
-  }
-}
 
-@layer base {
->>>>>>> 05e4b3f7d8dcbf8ed032cb15e8010b1108d9889f
+    --radius: 0.75rem;
+  }
+
   * {
     @apply border-border;
   }
@@ -136,62 +58,29 @@
 }
 
 /* ============================================================
-   COMPONENT UTILITIES
+   COMPONENTS
    ============================================================ */
 
 @layer components {
+
   .section-container {
     @apply relative px-6 py-20 md:py-32;
     scroll-margin-top: 80px;
   }
 
-<<<<<<< HEAD
+  /* Gradient Gold Text */
   .gradient-text {
     background: linear-gradient(
       135deg,
-      hsl(45 93% 55%) 0%,
-      hsl(38 92% 58%) 100%
+      hsl(45 87% 62%) 0%,
+      hsl(43 80% 57%) 100%
     );
-=======
-  /* Gradient Text - Gold */
-  .gradient-text {
-    background: linear-gradient(135deg, hsl(45 87% 62%) 0%, hsl(43 80% 57%) 100%);
->>>>>>> 05e4b3f7d8dcbf8ed032cb15e8010b1108d9889f
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-<<<<<<< HEAD
-=======
-  /* Subtle Gold Glow Effects */
-  .glow-gold {
-    box-shadow: 0 0 40px hsl(45 87% 62% / 0.15), 0 0 80px hsl(45 87% 62% / 0.08);
-  }
-
-  .glow-gold-soft {
-    box-shadow: 0 0 60px hsl(45 87% 62% / 0.1);
-  }
-
-  /* Background Glow */
-  .bg-glow {
-    position: relative;
-  }
-
-  .bg-glow::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(ellipse at center, hsl(45 87% 62% / 0.06) 0%, transparent 60%);
-    pointer-events: none;
-  }
-
-  /* Glass Card - Premium */
->>>>>>> 05e4b3f7d8dcbf8ed032cb15e8010b1108d9889f
+  /* Glass Card */
   .glass-card {
     @apply bg-card backdrop-blur-xl rounded-2xl;
     border: 1px solid rgba(255, 255, 255, 0.06);
@@ -201,61 +90,25 @@
 
   .glass-card:hover {
     border-color: rgba(242, 201, 76, 0.15);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 40px rgba(242, 201, 76, 0.08);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.4),
+      0 0 40px rgba(242, 201, 76, 0.08);
     transform: translateY(-2px);
   }
 
-  /* Premium Card - no hover transform */
   .premium-card {
     @apply bg-card backdrop-blur-xl rounded-2xl;
     border: 1px solid rgba(255, 255, 255, 0.06);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
   }
-<<<<<<< HEAD
 }
 
 /* ============================================================
    UTILITIES
    ============================================================ */
-=======
-
-  /* Button Glow */
-  .btn-glow {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .btn-glow::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, hsl(0 0% 100% / 0.1), transparent);
-    transition: left 0.5s ease;
-  }
-
-  .btn-glow:hover::before {
-    left: 100%;
-  }
-
-  /* Progress Bar Animation */
-  .progress-bar-fill {
-    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-}
 
 @layer utilities {
-  /* Animation Delays */
-  .animation-delay-100 { animation-delay: 100ms; }
-  .animation-delay-200 { animation-delay: 200ms; }
-  .animation-delay-300 { animation-delay: 300ms; }
-  .animation-delay-400 { animation-delay: 400ms; }
-  .animation-delay-500 { animation-delay: 500ms; }
->>>>>>> 05e4b3f7d8dcbf8ed032cb15e8010b1108d9889f
 
-@layer utilities {
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
@@ -271,124 +124,44 @@
 }
 
 /* ============================================================
-   HERO ANIMATIONS (OPTIMIZED)
+   HERO ANIMATIONS
    ============================================================ */
 
-/* 🧠 Brain floating (smooth & premium) */
 @keyframes brainFloat {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-14px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-14px); }
+  100% { transform: translateY(0px); }
 }
 
 .animate-brain-float {
   animation: brainFloat 8s ease-in-out infinite;
-  will-change: transform;
 }
 
-/* ⭕ Orbit rings rotation */
 @keyframes orbitSlow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .animate-orbit-slow {
   animation: orbitSlow 40s linear infinite;
-  transform-origin: center;
 }
 
-/* ============================================================
-   PERFORMANCE + ACCESSIBILITY
-   ============================================================ */
-
-/* Disable heavy animations for users who prefer reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .animate-brain-float,
-  .animate-orbit-slow {
-    animation: none !important;
-  }
-}
-/* ================= NEURAL FLOW LINES ================= */
-
-@keyframes dashFlow {
-  0% {
-    stroke-dashoffset: 120;
-    opacity: 0.3;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    stroke-dashoffset: 0;
-    opacity: 0.3;
-  }
-}
-
-.animate-neural-flow {
-  animation: dashFlow 2.5s linear infinite;
-}
-
-/* ================= ATS PROGRESS ANIMATION ================= */
-
-@keyframes progressFill {
-  from {
-    width: 0%;
-  }
-  to {
-    width: 85%;
-  }
-}
-
-.animate-progress {
-  animation: progressFill 1.8s ease-out forwards;
-}
-/* ============================================================
-   HOW IT WORKS – AI FLOW ANIMATIONS
-   ============================================================ */
-
-/* Neural dotted line movement */
+/* Neural Flow */
 @keyframes neuralFlow {
-  from {
-    stroke-dashoffset: 120;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
+  from { stroke-dashoffset: 120; }
+  to { stroke-dashoffset: 0; }
 }
 
 .animate-neural-flow {
   animation: neuralFlow 2.5s linear infinite;
 }
 
-/* ATS Resume Sync infinite loading */
-@keyframes atsLoading {
-  0% {
-    transform: translateX(-120%);
-  }
-  100% {
-    transform: translateX(120%);
-  }
+/* Progress */
+@keyframes progressFill {
+  from { width: 0%; }
+  to { width: 85%; }
 }
 
-.ats-loading::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    120deg,
-    transparent 0%,
-    rgba(234,179,8,0.9) 50%,
-    transparent 100%
-  );
-  animation: atsLoading 1.4s linear infinite;
+.animate-progress {
+  animation: progressFill 1.8s ease-out forwards;
 }
