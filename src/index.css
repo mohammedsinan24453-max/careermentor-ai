@@ -1,16 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* CareerMentor AI Design System - Gold/Yellow Theme */
-/* Deep black background with warm gold gradient glows */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+/* ============================================================
+   CareerMentor AI – Design System (Gold Theme)
+   ============================================================ */
 
 @layer base {
   :root {
-    /* Core Colors - Dark Theme with Gold Accent */
-    --background: 240 10% 4%;
+    --background: 240 8% 8%;
     --foreground: 0 0% 98%;
 
     --card: 240 10% 6%;
@@ -19,7 +19,7 @@
     --popover: 240 10% 6%;
     --popover-foreground: 0 0% 98%;
 
-    /* Gold/Yellow Brand Colors */
+    /* Brand Gold */
     --primary: 45 93% 47%;
     --primary-foreground: 240 10% 4%;
 
@@ -27,70 +27,18 @@
     --secondary-foreground: 0 0% 98%;
 
     --muted: 240 10% 15%;
-    --muted-foreground: 240 5% 55%;
+    --muted-foreground: 0 0% 78%;
 
     --accent: 38 92% 50%;
     --accent-foreground: 240 10% 4%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
 
     --border: 240 10% 18%;
     --input: 240 10% 18%;
     --ring: 45 93% 47%;
 
     --radius: 0.75rem;
-
-    /* Custom Colors - Gold Theme */
-    --gold-glow: 45 93% 47%;
-    --amber-glow: 38 92% 50%;
-    --yellow-glow: 48 96% 53%;
-
-    /* Gradients - Gold Theme */
-    --gradient-primary: linear-gradient(135deg, hsl(45 93% 47%) 0%, hsl(38 92% 50%) 100%);
-    --gradient-glow: radial-gradient(ellipse at center, hsl(45 93% 47% / 0.15) 0%, transparent 70%);
-    --gradient-section: linear-gradient(180deg, hsl(240 10% 4%) 0%, hsl(240 10% 6%) 50%, hsl(240 10% 4%) 100%);
-
-    /* Shadows - Gold Theme */
-    --shadow-glow: 0 0 60px hsl(45 93% 47% / 0.3);
-    --shadow-button: 0 0 30px hsl(45 93% 47% / 0.4);
-    --shadow-card: 0 4px 24px hsl(0 0% 0% / 0.4);
-
-    /* Sidebar */
-    --sidebar-background: 240 10% 6%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 45 93% 47%;
-    --sidebar-primary-foreground: 240 10% 4%;
-    --sidebar-accent: 240 10% 12%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 240 10% 18%;
-    --sidebar-ring: 45 93% 47%;
   }
 
-  .dark {
-    --background: 240 10% 4%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 6%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 6%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 45 93% 47%;
-    --primary-foreground: 240 10% 4%;
-    --secondary: 240 10% 12%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 10% 15%;
-    --muted-foreground: 240 5% 55%;
-    --accent: 38 92% 50%;
-    --accent-foreground: 240 10% 4%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 10% 18%;
-    --input: 240 10% 18%;
-    --ring: 45 93% 47%;
-  }
-}
-
-@layer base {
   * {
     @apply border-border;
   }
@@ -105,91 +53,171 @@
   }
 }
 
+/* ============================================================
+   COMPONENT UTILITIES
+   ============================================================ */
+
 @layer components {
-  /* Section Styling */
   .section-container {
-    @apply relative px-6 py-24 md:py-32;
+    @apply relative px-6 py-20 md:py-32;
+    scroll-margin-top: 80px;
   }
 
-  /* Gradient Text */
   .gradient-text {
-    background: linear-gradient(135deg, hsl(45 93% 55%) 0%, hsl(38 92% 58%) 100%);
+    background: linear-gradient(
+      135deg,
+      hsl(45 93% 55%) 0%,
+      hsl(38 92% 58%) 100%
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  /* Glow Effects */
-  .glow-gold {
-    box-shadow: 0 0 60px hsl(45 93% 47% / 0.3), 0 0 120px hsl(45 93% 47% / 0.15);
-  }
-
-  .glow-amber {
-    box-shadow: 0 0 60px hsl(38 92% 50% / 0.3), 0 0 120px hsl(38 92% 50% / 0.15);
-  }
-
-  /* Background Glow */
-  .bg-glow {
-    position: relative;
-  }
-
-  .bg-glow::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(ellipse at center, hsl(45 93% 47% / 0.08) 0%, transparent 60%);
-    pointer-events: none;
-  }
-
-  /* Glass Card */
   .glass-card {
     @apply bg-card/50 backdrop-blur-xl border border-border/50 rounded-2xl;
     box-shadow: 0 4px 24px hsl(0 0% 0% / 0.3);
   }
-
-  /* Button Glow */
-  .btn-glow {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .btn-glow::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, hsl(0 0% 100% / 0.1), transparent);
-    transition: left 0.5s ease;
-  }
-
-  .btn-glow:hover::before {
-    left: 100%;
-  }
 }
 
-@layer utilities {
-  /* Animation Delays */
-  .animation-delay-100 { animation-delay: 100ms; }
-  .animation-delay-200 { animation-delay: 200ms; }
-  .animation-delay-300 { animation-delay: 300ms; }
-  .animation-delay-400 { animation-delay: 400ms; }
-  .animation-delay-500 { animation-delay: 500ms; }
-  .animation-delay-600 { animation-delay: 600ms; }
-  .animation-delay-700 { animation-delay: 700ms; }
-  .animation-delay-800 { animation-delay: 800ms; }
+/* ============================================================
+   UTILITIES
+   ============================================================ */
 
-  /* Scrollbar Styling */
+@layer utilities {
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
+  .scroll-mt-header {
+    scroll-margin-top: 80px;
+  }
+}
+
+/* ============================================================
+   HERO ANIMATIONS (OPTIMIZED)
+   ============================================================ */
+
+/* 🧠 Brain floating (smooth & premium) */
+@keyframes brainFloat {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-brain-float {
+  animation: brainFloat 8s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* ⭕ Orbit rings rotation */
+@keyframes orbitSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-orbit-slow {
+  animation: orbitSlow 40s linear infinite;
+  transform-origin: center;
+}
+
+/* ============================================================
+   PERFORMANCE + ACCESSIBILITY
+   ============================================================ */
+
+/* Disable heavy animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-brain-float,
+  .animate-orbit-slow {
+    animation: none !important;
+  }
+}
+/* ================= NEURAL FLOW LINES ================= */
+
+@keyframes dashFlow {
+  0% {
+    stroke-dashoffset: 120;
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.3;
+  }
+}
+
+.animate-neural-flow {
+  animation: dashFlow 2.5s linear infinite;
+}
+
+/* ================= ATS PROGRESS ANIMATION ================= */
+
+@keyframes progressFill {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 85%;
+  }
+}
+
+.animate-progress {
+  animation: progressFill 1.8s ease-out forwards;
+}
+/* ============================================================
+   HOW IT WORKS – AI FLOW ANIMATIONS
+   ============================================================ */
+
+/* Neural dotted line movement */
+@keyframes neuralFlow {
+  from {
+    stroke-dashoffset: 120;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-neural-flow {
+  animation: neuralFlow 2.5s linear infinite;
+}
+
+/* ATS Resume Sync infinite loading */
+@keyframes atsLoading {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+.ats-loading::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(234,179,8,0.9) 50%,
+    transparent 100%
+  );
+  animation: atsLoading 1.4s linear infinite;
 }

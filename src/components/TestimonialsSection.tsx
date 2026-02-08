@@ -1,40 +1,45 @@
-import { useRef } from 'react';
 import { AnimatedSection } from '@/components/AnimatedSection';
 import { motion } from 'framer-motion';
 
 const testimonials = [
   {
-    quote: "I was drowning in YouTube tutorials and random courses. CareerMentor AI gave me one clear path and I finally started making real progress.",
+    quote:
+      "I was drowning in YouTube tutorials and random courses. CareerMentor AI gave me one clear roadmap, built my resume as I learned, and showed me where to apply next.",
     name: "Priya Sharma",
     role: "Data Science Student",
     avatar: "PS",
   },
   {
-    quote: "The roadmap was exactly what I needed to switch from marketing to tech. No more guessing what to learn next.",
+    quote:
+      "The roadmap was exactly what I needed to switch from marketing to tech. After finishing it, I had a resume ready and relevant job roles to target.",
     name: "Arjun Mehta",
     role: "Career Switcher",
     avatar: "AM",
   },
   {
-    quote: "As a fresher, I had no idea where to start. Now I have a clear plan and my resume builds itself as I learn.",
+    quote:
+      "As a fresher, I had no idea where to start. Now I have a clear learning plan, an auto-built resume, and confidence about which jobs I should apply for.",
     name: "Sneha Patel",
     role: "Computer Science Graduate",
     avatar: "SP",
   },
   {
-    quote: "The industry-driven approach makes so much sense. I'm learning skills companies actually want.",
+    quote:
+      "The industry-driven approach really works. I’m learning skills companies actually want, and CareerMentor AI shows jobs that match what I’ve learned.",
     name: "Rahul Kumar",
-    role: "Software Developer",
+    role: "Aspiring Software Developer",
     avatar: "RK",
   },
   {
-    quote: "Finally, a platform that doesn't just throw resources at you. It actually guides you through them.",
+    quote:
+      "Most platforms stop at learning. CareerMentor AI helped me go further — from roadmap to resume and finally to real job opportunities.",
     name: "Ananya Reddy",
     role: "Product Manager Aspirant",
     avatar: "AR",
   },
   {
-    quote: "The progress tracking keeps me motivated. I can see exactly how far I've come.",
+    quote:
+      "The progress tracking kept me motivated, and knowing that jobs would unlock after completion made the whole journey feel purposeful.",
     name: "Vikram Singh",
     role: "Working Professional",
     avatar: "VS",
@@ -53,7 +58,7 @@ export const TestimonialsSection = () => {
             <span className="gradient-text">making progress</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Real stories from learners who stopped researching and started achieving.
+            Real stories from learners who followed a clear path — from learning to jobs.
           </p>
         </AnimatedSection>
       </div>
@@ -84,15 +89,19 @@ export const TestimonialsSection = () => {
               className="glass-card p-6 min-w-[350px] max-w-[350px] flex-shrink-0 hover:border-primary/30 transition-all duration-300"
             >
               <blockquote className="text-foreground mb-6 leading-relaxed">
-                "{testimonial.quote}"
+                “{testimonial.quote}”
               </blockquote>
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-sm font-semibold text-primary-foreground">
                   {testimonial.avatar}
                 </div>
                 <div>
-                  <div className="font-semibold text-foreground">{testimonial.name}</div>
-                  <div className="text-sm text-muted-foreground">{testimonial.role}</div>
+                  <div className="font-semibold text-foreground">
+                    {testimonial.name}
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    {testimonial.role}
+                  </div>
                 </div>
               </div>
             </div>

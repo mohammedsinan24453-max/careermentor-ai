@@ -1,42 +1,65 @@
+/* =====================================
+   GLOBAL TEXT SYSTEM — LITE WHITE FIX
+===================================== */
+
+:root {
+  --text-primary: rgba(255, 255, 255, 0.98);   /* headings */
+  --text-secondary: rgba(255, 255, 255, 0.85); /* main content */
+  --text-muted: rgba(255, 255, 255, 0.7);      /* labels */
+  --text-dim: rgba(255, 255, 255, 0.55);       /* placeholder */
+}
+
+/* BASE */
+body {
+  background-color: #000;
+  color: var(--text-secondary);
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* HEADINGS */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+/* PARAGRAPH */
+p {
+  color: var(--text-secondary);
+}
+
+/* LABEL / SMALL TEXT */
+small,
+label,
+span {
+  color: var(--text-muted);
+}
+
+/* LINKS */
+a {
+  color: #eab308;
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.9;
+}
+
+/* REMOVE DEFAULT VITE STYLES */
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  max-width: none;
+  padding: 0;
+  text-align: left;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
+.logo,
+.read-the-docs,
 .card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  all: unset;
 }
