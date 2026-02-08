@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
@@ -7,6 +8,24 @@ import { useScroll } from "@/hooks/use-scroll";
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { scrollToSection } = useScroll();
+=======
+import { useState, useEffect } from 'react';
+import { Button } from '@/components/ui/button';
+import { Menu, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+
+export const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+>>>>>>> 05e4b3f7d8dcbf8ed032cb15e8010b1108d9889f
 
   const handleNavClick = (id: string) => {
     scrollToSection(id);
@@ -14,6 +33,7 @@ export const Navbar = () => {
   };
 
   return (
+<<<<<<< HEAD
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-20">
@@ -41,11 +61,48 @@ export const Navbar = () => {
                 AI
               </span>
             </div>
+=======
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isScrolled 
+        ? 'bg-background/90 backdrop-blur-xl border-b border-[rgba(255,255,255,0.06)]' 
+        : 'bg-transparent'
+    }`}>
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <div className="flex items-center gap-2">
+            {/* Logo Mark - Curved stroke with c_ inside */}
+            <div className="relative w-9 h-9">
+              <svg viewBox="0 0 36 36" className="w-full h-full">
+                {/* Outer curved stroke */}
+                <path
+                  d="M28 8 C34 14, 34 26, 24 32"
+                  fill="none"
+                  stroke="hsl(45 87% 62%)"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                />
+                {/* c_ text */}
+                <text
+                  x="10"
+                  y="24"
+                  fill="white"
+                  fontSize="14"
+                  fontWeight="600"
+                  fontFamily="Inter, sans-serif"
+                >
+                  c_
+                </text>
+              </svg>
+            </div>
+            <span className="text-lg font-bold text-foreground">CareerMentor AI</span>
+>>>>>>> 05e4b3f7d8dcbf8ed032cb15e8010b1108d9889f
           </div>
 
           {/* ================= DESKTOP LINKS ================= */}
           <div className="hidden md:flex items-center gap-8">
             <button
+<<<<<<< HEAD
               onClick={() => handleNavClick("features")}
               className="text-sm text-muted-foreground hover:text-white transition-colors"
             >
@@ -55,11 +112,22 @@ export const Navbar = () => {
             <button
               onClick={() => handleNavClick("how-it-works")}
               className="text-sm text-muted-foreground hover:text-white transition-colors"
+=======
+              onClick={() => scrollToSection('features')}
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Features
+            </button>
+            <button
+              onClick={() => scrollToSection('how-it-works')}
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+>>>>>>> 05e4b3f7d8dcbf8ed032cb15e8010b1108d9889f
             >
               How It Works
             </button>
 
             <button
+<<<<<<< HEAD
               onClick={() => handleNavClick("about")}
               className="text-sm text-muted-foreground hover:text-white transition-colors"
             >
@@ -69,8 +137,12 @@ export const Navbar = () => {
             <button
               onClick={() => handleNavClick("faq")}
               className="text-sm text-muted-foreground hover:text-white transition-colors"
+=======
+              onClick={() => scrollToSection('testimonials')}
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+>>>>>>> 05e4b3f7d8dcbf8ed032cb15e8010b1108d9889f
             >
-              FAQ
+              Testimonials
             </button>
           </div>
 
@@ -81,7 +153,7 @@ export const Navbar = () => {
               size="sm"
               onClick={() => handleNavClick("waitlist")}
             >
-              Join Waitlist
+              Get Early Access
             </Button>
           </div>
 
@@ -102,6 +174,7 @@ export const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
+<<<<<<< HEAD
             transition={{ duration: 0.25 }}
             className="md:hidden bg-background border-b border-border"
           >
@@ -116,12 +189,35 @@ export const Navbar = () => {
                 </button>
               ))}
 
+=======
+            className="md:hidden bg-card border-b border-[rgba(255,255,255,0.06)]"
+          >
+            <div className="px-6 py-4 space-y-4">
+              <button
+                onClick={() => scrollToSection('features')}
+                className="block w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Features
+              </button>
+              <button
+                onClick={() => scrollToSection('how-it-works')}
+                className="block w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                How It Works
+              </button>
+              <button
+                onClick={() => scrollToSection('testimonials')}
+                className="block w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Testimonials
+              </button>
+>>>>>>> 05e4b3f7d8dcbf8ed032cb15e8010b1108d9889f
               <Button
                 variant="hero"
                 className="w-full h-12 mt-4"
                 onClick={() => handleNavClick("waitlist")}
               >
-                Join Waitlist
+                Get Early Access
               </Button>
             </div>
           </motion.div>
